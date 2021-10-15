@@ -12,7 +12,9 @@ namespace DB_Users
         private int _maxLenghtSurname;
         private int _maxLenghtSpecialty;
 
-        public FormatUserString(List<InformationUser> listUsers)
+        public FormatUserString() {}
+
+        public void NewMaxLenght(List<InformationUser> listUsers)
         {
             _maxLenghtName = _maxLenghtSpecialty = _maxLenghtSurname = int.MinValue;
 
@@ -22,7 +24,6 @@ namespace DB_Users
                 _maxLenghtSurname = _maxLenghtSurname > user.Surname.Length ? _maxLenghtSurname : user.Surname.Length;
                 _maxLenghtSpecialty = _maxLenghtSpecialty > user.Specialty.Length ? _maxLenghtSpecialty : user.Specialty.Length;
             }
-
         }
 
         public string FormatUserLineListBox(InformationUser user)

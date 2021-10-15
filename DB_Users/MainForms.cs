@@ -30,7 +30,8 @@ namespace DB_Users
             if (_listUsers == null)
                 Close();
 
-            _format = new FormatUserString(_listUsers);
+            _format = new FormatUserString();
+            _format.NewMaxLenght(_listUsers);
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -130,6 +131,7 @@ namespace DB_Users
             if (!us.isObjectNull)
             {
                 _listUsers.Add(us);
+                _format.NewMaxLenght(_listUsers);
                 button1_Click(this, new EventArgs());
             }
 
