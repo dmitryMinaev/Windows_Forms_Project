@@ -28,10 +28,10 @@ namespace DB_Users
 
         public string FormatUserLineListBox(InformationUser user)
         {
-            return user.Name + string.Concat(Enumerable.Repeat(' ', _maxLenghtName - user.Name.Length)) + "\t" +
-                   user.Surname + string.Concat(Enumerable.Repeat(' ', _maxLenghtSurname - user.Surname.Length)) + " \t" +
+            return user.Name + string.Concat(Enumerable.Repeat(" ", _maxLenghtName - user.Name.Length)) + "\t" +
+                   user.Surname + string.Concat(Enumerable.Repeat(" ", _maxLenghtSurname + 3 - user.Surname.Length)) + "\t" +
                    user.Age + "\t" +
-                   user.Specialty + string.Concat(Enumerable.Repeat(' ', _maxLenghtSpecialty + 5 - user.Specialty.Length)) + "\t" +
+                   user.Specialty + string.Concat(Enumerable.Repeat(" ", _maxLenghtSpecialty + 8 - user.Specialty.Length)) + "\t" +
                    user.WorkExperience + "\n";
         }
 

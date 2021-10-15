@@ -137,7 +137,5 @@ namespace DB_Users
 
             ActiveControl = default;
         }
-
-
     }
 }

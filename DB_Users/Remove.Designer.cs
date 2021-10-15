@@ -141,7 +141,7 @@ namespace DB_Users
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 13);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Work experiance";
+            this.label5.Text = "Work experience";
             // 
             // Remove
             // 
