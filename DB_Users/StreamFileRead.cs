@@ -19,7 +19,7 @@ namespace DB_Users
         public StreamFileRead()
         {
             _pathFile = "baseInfo.txt";
-            _countLine = 1;
+            _countLine = 0;
             _streamRead = null;
 
             try
@@ -40,7 +40,7 @@ namespace DB_Users
             {
                 try
                 {
-                    if(_streamRead.BaseStream.Length == 0)
+                    if (_streamRead.BaseStream.Length == 0)
                         throw new FileEmptyException();
 
                     string allFile = await _streamRead.ReadToEndAsync().ConfigureAwait(false);
@@ -54,9 +54,11 @@ namespace DB_Users
                     {
                         string line = await _streamRead.ReadLineAsync().ConfigureAwait(false);
                         user.Name = Regex.Replace(Regex.Match(line, @"Name:(.*) Surname:").Groups[1].Value, @"\s+", " ");
-                        user.Surname = Regex.Replace(Regex.Match(line, @"Surname:(.*) Specialty:").Groups[1].Value, @"\s+", " ");
-                        user.Specialty = Regex.Replace(Regex.Match(line, @"Specialty:(.*)").Groups[1].Value, @"\s+", " ");
-                        
+                        user.Surname = Regex.Replace(Regex.Match(line, @"Surname:(.*) Age:").Groups[1].Value, @"\s+", " ");
+                        user.Age = Convert.ToInt32(Regex.Replace(Regex.Match(line, @"Age:(.*) Specialty:").Groups[1].Value, @"\s+", " "));
+                        user.Specialty = Regex.Replace(Regex.Match(line, @"Specialty:(.*) Work experience:").Groups[1].Value, @"\s+", " ");
+                        user.WorkExperience = Convert.ToInt32(Regex.Replace(Regex.Match(line, @"Work experience:(.*)").Groups[1].Value, @"\s+", " "));
+
                         listUsers.Add(user);
                         user = new InformationUser();
                     }
@@ -70,10 +72,6 @@ namespace DB_Users
             return listUsers;
         }
 
-        public void Dispose()
-        {
-            if (_streamRead != null)
-                _streamRead.Close();
-        }
+        public void Dispose() => _streamRead?.Close();
     }
 }
