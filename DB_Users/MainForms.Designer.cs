@@ -38,6 +38,8 @@ namespace DB_Users
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox1
@@ -72,7 +74,7 @@ namespace DB_Users
             // 
             this.button3.Location = new System.Drawing.Point(174, 315);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(86, 23);
             this.button3.TabIndex = 3;
             this.button3.Text = "Save with file";
             this.button3.UseVisualStyleBackColor = true;
@@ -80,7 +82,7 @@ namespace DB_Users
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(255, 315);
+            this.button4.Location = new System.Drawing.Point(93, 353);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 4;
@@ -127,11 +129,33 @@ namespace DB_Users
             this.label4.TabIndex = 8;
             this.label4.Text = "Specialty";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(12, 353);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "Add user";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(323, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Work experience";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // MainForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 388);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -160,6 +184,8 @@ namespace DB_Users
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label5;
     }
 }
 

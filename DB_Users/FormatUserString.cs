@@ -30,7 +30,7 @@ namespace DB_Users
             return user.Name + string.Concat(Enumerable.Repeat(' ', _maxLenghtName - user.Name.Length)) + "\t" +
                    user.Surname + string.Concat(Enumerable.Repeat(' ', _maxLenghtSurname - user.Surname.Length)) + " \t" +
                    user.Age + "\t" +
-                   user.Specialty + string.Concat(Enumerable.Repeat(' ', _maxLenghtSpecialty - user.Specialty.Length)) + " " +
+                   user.Specialty + string.Concat(Enumerable.Repeat(' ', _maxLenghtSpecialty + 5 - user.Specialty.Length)) + "\t" +
                    user.WorkExperience + "\n";
         }
 

@@ -13,5 +13,6 @@ namespace DB_Users
         public int Age { get; set; }
         public string Specialty { get; set; }
         public int WorkExperience { get; set; }
+        public bool isObjectNull { get; set; }
     }
 }

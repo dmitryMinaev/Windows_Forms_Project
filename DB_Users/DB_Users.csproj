@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="ComparerClass.cs" />
     <Compile Include="FileEmptyException.cs" />
     <Compile Include="FormatUserString.cs" />
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="StreamFileRead.cs" />
     <Compile Include="StreamFileWrite.cs" />
+    <EmbeddedResource Include="Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForms.resx">
       <DependentUpon>MainForms.cs</DependentUpon>
     </EmbeddedResource>

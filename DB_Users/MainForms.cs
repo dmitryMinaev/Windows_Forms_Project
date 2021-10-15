@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -55,7 +56,10 @@ namespace DB_Users
         private void button2_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
-                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            {
+                _listUsers.RemoveAt(listBox1.SelectedIndex);
+                button1_Click(this, new EventArgs());
+            }
 
             ActiveControl = default;
         }
@@ -75,12 +79,12 @@ namespace DB_Users
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //Clipboard.SetText((string)listBox1.SelectedItem);
-
             using (StreamFileWrite fileWrite = new StreamFileWrite())
             {
                 fileWrite.writeFileAsync(_listUsers, _format);
             }
+
+            ActiveControl = default;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -109,5 +113,29 @@ namespace DB_Users
                 button1_Click(this, new EventArgs());
             }
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            if (listBox1 != null)
+            {
+                _listUsers.Sort(new ComparerWorkExperience());
+                button1_Click(this, new EventArgs());
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            InformationUser us = new InformationUser();
+            new Add() { user = us }.ShowDialog();
+            if (!us.isObjectNull)
+            {
+                _listUsers.Add(us);
+                button1_Click(this, new EventArgs());
+            }
+
+            ActiveControl = default;
+        }
+
+
     }
 }

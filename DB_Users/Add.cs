@@ -1,33 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DB_Users
 {
-    public partial class Remove : Form
+    public partial class Add : Form
     {
         public InformationUser user;
 
-        public Remove()
+        public Add()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            user.isObjectNull = true;
             Close();
         }
 
-        private void Remove_Load(object sender, EventArgs e)
-        {
-            textBox1.Text = user.Name;
-            textBox2.Text = user.Surname;
-            textBox3.Text = Convert.ToString(user.Age);
-            textBox4.Text = user.Specialty;
-            textBox5.Text = Convert.ToString(user.WorkExperience);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "")
                 MessageBox.Show("Не все поля заполнены");
@@ -48,6 +46,11 @@ namespace DB_Users
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void Add_Load(object sender, EventArgs e)
+        {
+            user.isObjectNull = true;
         }
     }
 }

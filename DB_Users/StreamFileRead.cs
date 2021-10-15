@@ -53,11 +53,12 @@ namespace DB_Users
                     for (int i = 0; i < _countLine; i++)
                     {
                         string line = await _streamRead.ReadLineAsync().ConfigureAwait(false);
-                        user.Name = Regex.Replace(Regex.Match(line, @"Name:(.*) Surname:").Groups[1].Value, @"\s+", " ");
-                        user.Surname = Regex.Replace(Regex.Match(line, @"Surname:(.*) Age:").Groups[1].Value, @"\s+", " ");
-                        user.Age = Convert.ToInt32(Regex.Replace(Regex.Match(line, @"Age:(.*) Specialty:").Groups[1].Value, @"\s+", " "));
-                        user.Specialty = Regex.Replace(Regex.Match(line, @"Specialty:(.*) Work experience:").Groups[1].Value, @"\s+", " ");
-                        user.WorkExperience = Convert.ToInt32(Regex.Replace(Regex.Match(line, @"Work experience:(.*)").Groups[1].Value, @"\s+", " "));
+                        user.Name = Regex.Replace(Regex.Match(line, @"Name:(.*) Surname:").Groups[1].Value, @"\s+", "");
+                        user.Surname = Regex.Replace(Regex.Match(line, @"Surname:(.*) Age:").Groups[1].Value, @"\s+", "");
+                        user.Age = Convert.ToInt32(Regex.Replace(Regex.Match(line, @"Age:(.*) Specialty:").Groups[1].Value, @"\s+", ""));
+                        user.Specialty = Regex.Replace(Regex.Match(line, @"Specialty:(.*) Work experience:").Groups[1].Value, @"\s+", "");
+                        user.WorkExperience = Convert.ToInt32(Regex.Replace(Regex.Match(line, @"Work experience:(.*)").Groups[1].Value, @"\s+", ""));
+                        user.isObjectNull = false;
 
                         listUsers.Add(user);
                         user = new InformationUser();
